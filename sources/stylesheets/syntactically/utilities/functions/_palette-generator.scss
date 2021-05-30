@@ -50,15 +50,15 @@ $max-rgb: 255;
 
 
 @function color-50($color) {
-  @return color.mix($color, color-base-light(), 12%);
+  @return color.mix($color, color-base-light(), 12%); // in the future it will be exchanged for 13%, a number of fibonacci
 }
 
 @function color-100($color) {
-  @return color.mix($color, color-base-light(), 30%);
+  @return color.mix($color, color-base-light(), 30%); // in the future it will be exchanged for 34%, a number of fibonacci
 }
 
 @function color-300($color) {
-  @return color.mix($color, color-base-light(), 70%);
+  @return color.mix($color, color-base-light(), 70%); // in the future it will be exchanged for 89%, a number of fibonacci
 }
 
 @function color-500($color) {
@@ -66,9 +66,9 @@ $max-rgb: 255;
 }
 
 @function color-700($color) {
-  @return color.mix($color, color-base-dark($color), 70%);
+  @return color.mix($color, color-base-dark($color), 70%); // in the future it will be exchanged for 89%, a number of fibonacci
 }
 
 @function color-900($color) {
-  @return color.mix($color, color-base-dark($color), 25%);
+  @return color.mix($color, color-base-dark($color), 25%); // in the future it will be exchanged for 21%, a number of fibonacci
 }
