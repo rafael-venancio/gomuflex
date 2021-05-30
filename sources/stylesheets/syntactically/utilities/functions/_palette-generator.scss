@@ -1,0 +1,49 @@
+@use 'sass:color';
+@use 'sass:math';
+
+
+// local variables
+$color-light: #ffffff;
+$max-rgb: 255;
+// end of local variables
+
+
+@function r($color) {
+  @return color.red($color);
+}
+
+@function g($color) {
+  @return color.green($color);
+}
+
+@function b($color) {
+  @return color.blue($color);
+}
+
+@function combine-r($a, $b) {
+  @return math.floor(math.div((r($a) * r($b)), $max-rgb));
+}
+
+@function combine-g($a, $b) {
+  @return math.floor(math.div((g($a) * g($b)), $max-rgb));
+}
+
+@function combine-b($a, $b) {
+  @return math.floor(math.div((b($a) * b($b)), $max-rgb));
+}
+
+@function combine($a, $b) { // aka.: multiply
+  $r: combine-r($a, $b);
+  $g: combine-g($a, $b);
+  $b: combine-b($a, $b);
+
+  @return rgb($r, $g, $b);
+}
+
+@function color-base-light($color: $color-light) {
+  @return $color;
+}
+
+@function color-base-dark($color) {
+  @return combine($color, $color);
+}
