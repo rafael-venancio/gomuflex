@@ -2,10 +2,10 @@
 @use 'sass:math';
 
 
-// local variables
+// original source: https://github.com/mbitson/mcg/blob/master/scripts/controllers/ColorGeneratorCtrl.js
+
 $color-light: #ffffff;
 $max-rgb: 255;
-// end of local variables
 
 
 @function r($color) {
@@ -46,4 +46,29 @@ $max-rgb: 255;
 
 @function color-base-dark($color) {
   @return combine($color, $color);
+}
+
+
+@function color-50($color) {
+  @return color.mix($color, color-base-light(), 12%);
+}
+
+@function color-100($color) {
+  @return color.mix($color, color-base-light(), 30%);
+}
+
+@function color-300($color) {
+  @return color.mix($color, color-base-light(), 70%);
+}
+
+@function color-500($color) {
+  @return $color;
+}
+
+@function color-700($color) {
+  @return color.mix($color, color-base-dark($color), 70%);
+}
+
+@function color-900($color) {
+  @return color.mix($color, color-base-dark($color), 25%);
 }
